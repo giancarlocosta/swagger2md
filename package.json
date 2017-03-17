@@ -11,12 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/syroegkin/swagger-markdown.git"
+    "url": "git+https://github.com/giancarlocosta/swagger2md"
   },
-  "bugs": {
-    "url": "https://github.com/syroegkin/swagger-markdown/issues"
-  },
-  "homepage": "https://github.com/syroegkin/swagger-markdown#readme",
+  "homepage": "https://github.com/giancarlocosta/swagger2md#readme",
   "babel": {
     "presets": [
       "es2015"
