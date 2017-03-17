@@ -8,8 +8,8 @@ module.exports = function (parameters, pathParameters) {
 
   var res = [];
   res.push('**Parameters**\n');
-  res.push('| Name | Located in | Required | Description | Schema |');
-  res.push('| ---- | ---------- | -------- | ----------- | ------ |');
+  res.push('| Name | Located in | Required | Schema | Description |');
+  res.push('| ---- | ---------- | -------- | ------ | ----------- |');
   [].concat(pathParameters, parameters).map(function (keys) {
     if (keys) {
       var paramsetersKeys = keys;
@@ -26,13 +26,6 @@ module.exports = function (parameters, pathParameters) {
       // Scope (in)
       line.push(paramsetersKeys.in || '');
       line.push(paramsetersKeys.required ? 'Yes' : 'No');
-      // description
-      if ('description' in paramsetersKeys) {
-        line.push(paramsetersKeys.description.replace(/[\r\n]/g, ' '));
-      } else {
-        line.push('');
-      }
-      //line.push(paramsetersKeys.required ? 'Yes' : 'No');
 
       // Prepare schema to be transformed
       var schema = null;
@@ -45,8 +38,15 @@ module.exports = function (parameters, pathParameters) {
         schema.setReference('$ref' in paramsetersKeys ? paramsetersKeys.$ref : null);
         schema.setItems('items' in paramsetersKeys ? paramsetersKeys.items : null);
       }
-
       line.push(transformDataTypes(schema));
+
+      // description
+      if ('description' in paramsetersKeys) {
+        line.push(paramsetersKeys.description.replace(/[\r\n]/g, ' '));
+      } else {
+        line.push('');
+      }
+
       // Add spaces and glue with pipeline
       res.push('|' + line.map(function (el) {
         return ' ' + el + ' ';
