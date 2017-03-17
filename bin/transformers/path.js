@@ -48,9 +48,42 @@ module.exports = function (path, data, parameters) {
           res.push(transformParameters(pathInfo.parameters, pathParameters, parameters) + '\n');
         }
 
+        // Request Example if any
+        if ('requestExample' in pathInfo) {
+          let desc;
+
+          res.push('**Request Example:** \n');
+          try {
+            const obj = JSON.parse(pathInfo.requestExample.toString());
+            desc = JSON.stringify(obj, null, 3);
+            console.log(desc)
+            res.push('```');
+            res.push(desc);
+            res.push('```');
+          } catch (e) {
+            desc = pathInfo.requestExample;
+          }
+        }
+
         // Build responses
         if ('responses' in pathInfo) {
           res.push(transformResponses(pathInfo.responses) + '\n');
+        }
+
+        if ('responseExample' in pathInfo) {
+          let desc;
+
+          res.push('**Response Example:** \n');
+          try {
+            const obj = JSON.parse(pathInfo.responseExample.toString());
+            desc = JSON.stringify(obj, null, 3);
+            console.log(desc)
+            res.push('```');
+            res.push(desc);
+            res.push('```');
+          } catch (e) {
+            desc = pathInfo.responseExample;
+          }
         }
 
         // Build security
