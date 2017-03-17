@@ -1,6 +1,6 @@
 {
   "name": "swagger2md",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Create markdown API documentation from swagger file",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,9 @@
   },
   "bin": {
     "swagger-markdown": "bin/index.js"
+  },
+  "publishConfig": {
+    "registry":"https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

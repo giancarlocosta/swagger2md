@@ -56,12 +56,12 @@ module.exports = function (path, data, parameters) {
           try {
             const obj = JSON.parse(pathInfo.requestExample.toString());
             desc = JSON.stringify(obj, null, 3);
-            console.log(desc)
             res.push('```');
             res.push(desc);
             res.push('```');
           } catch (e) {
             desc = pathInfo.requestExample;
+            console.log(`requestExample for path ${path} (method: ${method}) may not have been formatted correctly. If JSON, it needs to be escaped.`);
           }
         }
 
@@ -77,12 +77,12 @@ module.exports = function (path, data, parameters) {
           try {
             const obj = JSON.parse(pathInfo.responseExample.toString());
             desc = JSON.stringify(obj, null, 3);
-            console.log(desc)
             res.push('```');
             res.push(desc);
             res.push('```');
           } catch (e) {
             desc = pathInfo.responseExample;
+            console.log(`responseExample for path ${path} (method: ${method}) may not have been formatted correctly. If JSON, it needs to be escaped.`);
           }
         }
 
