@@ -16,7 +16,7 @@ var processDefinition = function processDefinition(name, definition) {
   var linkAnchor = anchor(name);
 
   // Add anchor with name
-  res.push('<a name="' + linkAnchor + '"></a>**' + name + '**  ');
+  res.push('## <a name="' + linkAnchor + '"></a>**' + name + '**  ');
   res.push(definition.description);
   res.push('');
   res.push('| Name | Type | Required | Description |');
