@@ -32,9 +32,9 @@ var processDefinition = function processDefinition(name, definition) {
         if (obj.$ref) {
           t = obj.$ref.match(/\/([^/]*)$/i)[1];
           link = anchor(t);
-          typeCell += '[' + t + '](#' + link + ')';
+          typeCell += '[' + '[' + t + '](#' + link + ')' + ']';
         } else if (obj.type) {
-          typeCell += obj.type;
+          typeCell += '[' + obj.type + ']';
         }
 
         if (i + 1 < prop.items.oneOf.length) {
