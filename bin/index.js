@@ -63,8 +63,7 @@ if (args.input) {
             var resourceGroup = path.split('/')[1];
 
             var block = transformPath(path, inputDoc.paths[path], parameters);
-            console.log(resourceGroup);
-            console.log(block);
+
             if (resourceGroups[resourceGroup]) {
               resourceGroups[resourceGroup].push(block);
             } else {
@@ -73,7 +72,6 @@ if (args.input) {
 
             return;
           });
-          console.log(resourceGroups);
 
           Object.keys(resourceGroups).map(function (resourceGroup) {
             const val = resourceGroups[resourceGroup];
