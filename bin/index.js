@@ -3,6 +3,7 @@
 
 var yaml = require('js-yaml');
 var fs = require('fs');
+var path = require('path');
 var ArgumentParser = require('argparse').ArgumentParser;
 var transformInfo = require('./transformers/info');
 var transformPath = require('./transformers/path');
@@ -36,7 +37,12 @@ if (args.input) {
 
     try {
       (function () {
-        var inputDoc = yaml.safeLoad(fs.readFileSync(args.input, 'utf8'));
+        var inputDoc;
+        if (path.extname(args.input) === '.js') {
+          inputDoc = require(`${process.env.PWD}/${args.input}`);
+        } else {
+          inputDoc = yaml.safeLoad(fs.readFileSync(args.input, 'utf8'));
+        }
         var outputFile = args.output || args.input.replace(/(yaml|json)$/i, 'md');
 
         // Collect parameters
