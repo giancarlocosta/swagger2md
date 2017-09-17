@@ -7,7 +7,7 @@ const security = require('./security');
  * Allowed methods
  * @type {string[]}
  */
-const ALLOWED_METHODS = ['get', 'post', 'put', 'patch', 'delete', 'options'];
+const ALLOWED_METHODS = ['head', 'get', 'post', 'put', 'patch', 'delete', 'options'];
 
 module.exports = (path, data, parameters) => {
   const res = [];
