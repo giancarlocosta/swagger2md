@@ -1,21 +1,20 @@
-swagger-markdown
+swagger2md
 ================
 
-[![npm][npm-image]][npm-url] [![dependencies][david-image]][david-url] [![circle ci][circleci-image]][circleci-url] [![bitHound Overall Score](https://www.bithound.io/github/syroegkin/swagger-markdown/badges/score.svg)](https://www.bithound.io/github/syroegkin/swagger-markdown)
+Utility to convert Swagger JSON/yaml to Markdown files.<br/>
+_Supports swagger 2.0 format only_
 
-CLI script to turn swagger yaml into markdown files.
-Supports swagger 2.0 format only
+See [examples](https://github.com/giancarlocosta/swagger2md/tree/master/examples) folder
 
-see [examples](https://github.com/syroegkin/swagger-markdown/tree/master/examples) folder
+### Installation
 
-###Installation
+    npm install swagger2md
 
-    npm install -g swagger-markdown
-
-###Usage
+### Usage
 
 ```
-swagger-markdown [-h] [-v] -i  [-o]
+npm install -g swagger2md
+swagger2md [-h] [-v] -i  [-o]
 
 Options:
   -h, --help      Show this help message and exit.
@@ -25,34 +24,9 @@ Options:
 
 ```
 
-####Example:
+or
 
-```javascript
-swagger-markdown -i path/to/swagger/file.yaml
 ```
-By default it will create the new file within the same directory with the same name as swagger file but with .md extension.
-So, if swagger file is placed in `project/api-doc/swagger.yaml` the new file will be created as `project/api-doc/swagger.md`
-
-You can also use it as a npm script in your package.json:
-
-    npm i --save-dev swagger-markdown
-
-```json
-{
-    "scripts": {
-        "md-docs": "swagger-markdown -i path/to/swagger.yaml",
-        ...
-    }
-}
+npm i --save-dev swagger2md
+node_modules/swagger2md/bin/index.js -i /path/to/swagger-api-specification.json -o api.md;
 ```
-
-    npm run md-docs
-
-[npm-url]: https://www.npmjs.com/package/swagger-markdown
-[npm-image]: https://img.shields.io/npm/v/swagger-markdown.svg
-
-[david-url]: https://david-dm.org/syroegkin/swagger-markdown
-[david-image]: https://img.shields.io/david/syroegkin/swagger-markdown.svg
-
-[circleci-url]: https://circleci.com/gh/syroegkin/swagger-markdown/tree/master
-[circleci-image]: https://img.shields.io/circleci/project/syroegkin/swagger-markdown.svg
