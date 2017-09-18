@@ -9,7 +9,7 @@ var security = require('./security');
  * Allowed methods
  * @type {string[]}
  */
-var ALLOWED_METHODS = ['get', 'post', 'put', 'patch', 'delete', 'options'];
+var ALLOWED_METHODS = ['head', 'get', 'post', 'put', 'patch', 'delete', 'options'];
 
 module.exports = function (path, data, parameters) {
   var res = [];
